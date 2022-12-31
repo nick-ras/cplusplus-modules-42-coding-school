@@ -95,7 +95,7 @@ class	PhoneBook
 		
 };
 
-//first free and the automatic destroy
+//first free and the automatic destroyed
 int main(int argc, char **argv)
 {
 	if (argc == 1 && argv[0])
