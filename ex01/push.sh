@@ -9,5 +9,3 @@ git commit -m "$commitMessage"
 # read branch
 
 git push origin main
-
-read
