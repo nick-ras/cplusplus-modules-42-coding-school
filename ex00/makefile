@@ -1,29 +1,25 @@
 
-NAME = philo
-
-LIBFTPRINTF_PATH	= ./libftprintf
-LIBFTPRINTF_A	= $(LIBFTPRINTF_PATH)/libftprintf.a
+NAME = ex00
 
 MAKE = make
-CC = gcc
+CC = g++
 RM = rm -rf
-CFLAG = -Wall -Werror -Wextra -fsanitize=thread
+CFLAG = -Wall -Werror -Wextra
+
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/
 
-SRC_FILES = free_destroy.c in_threads.c \
-init.c main.c helper.c helper2.c helper3.c
+SRC_FILES = megaphone.cpp
 
-OBJ_FILES = ${SRC_FILES:.c=.o}
+OBJ_FILES = ${SRC_FILES:.cpp=.o}
 SRC			= $(addprefix $(SRC_DIR),$(SRC_FILES))
 OBJ			= $(addprefix $(OBJ_DIR),$(OBJ_FILES))
 
-${NAME}: ${OBJ} $(LIBFTPRINTF_A)
-			${CC} -o ${NAME} ${CFLAG} ${OBJ} ${LIBFTPRINTF_A}
+${NAME}: ${OBJ}
+			${CC} -o ${NAME} ${CFLAG} ${OBJ}
 all: ${NAME}
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
-			$(MAKE) all -C $(LIBFTPRINTF_PATH)
+$(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 			mkdir -p $(OBJ_DIR)
 			${CC} ${CFLAG} -o $@ -c $^
 
@@ -32,7 +28,6 @@ clean:
 
 fclean: clean
 			$(RM) ${NAME}
-#			make fclean -C $(LIBFTPRINTF_PATH)
 
 re: fclean all
 
