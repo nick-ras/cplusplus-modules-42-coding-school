@@ -3,42 +3,95 @@
 # include <string.h>
 
 using namespace std;
+using string = std::string;
 
 class	Contact
 {
-	public:
-		std::string str[5] = {"", "", "", "", ""};
+	private:
+		string str_[5] = {"", "", "", "", ""};
+		//do [5][50]?
 		//first_name; last_name;nickname;phone_number; darkest_secret;
+	public:
+		string	get_string(int i)
+		{
+			if (i > 3 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
+				return ("");
+			else
+				return (str_[i]);
+		}
+		
+		void	set_string(string input, int i)
+		{
+			if (i > 4)
+				return ;
+			str_[i] = input;
+		}
 };
 
 class	PhoneBook
 {
+	private:
+		Contact contacts[8];
+		int contact_count = 0;
+		// Contact *contacts = new Contact[8];
 	public:
-		Contact *contacts[8] = {NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL};
-		std::string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
+			// PhoneBook(const PhoneBook &copy); //copy constructor
+			// PhoneBook(); //default constructor
+			// PhoneBook & operator=(PhoneBook const & 	copy); //assignment operator
+		string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
+
 		~PhoneBook()
 		{			
-		int i = 0;
+			// int i = 0;
 
-		std::cout << "DESTRUCTOR" << std::endl;			 
-			while (contacts[i])
+			cout << "DESTRUCTOR" << std::endl;			 
+			// while (contact_count[i])
+			// {
+			// 	delete &contacts[i];
+			// 	cout << "DELETED CONTACT" << endl;
+			// 	i++;
+			// }
+		}
+
+		int start()
+		{
+			string input;
+
+			while (1)				
 			{
-				delete contacts[i];
-				cout << "DELETED CONTACT" << endl;
-				i++;
+				cout << "Enter a command: ADD, SEARCH, EXIT" << std::endl;
+				std::cin >> input;
+				if(!compare(input, "A"))
+					add_contact(contact_count++);
+				else if(!(compare(input, "S")))
+				{
+					string word;
+
+					cout << "Enter a search term: " << std::endl;
+					std::cin >> word; //luckely it doesnt accept just 'enter' but
+					cout << "WORD: " << word << std::endl;
+					if (!search(word))
+						cout << "FOUND NOTHING" << std::endl;
+				}
+				else if(!(compare(input, "EXIT")))
+					return (0);
+				else
+					cout << "INVALID COMMAND" << std::endl;
 			}
 		}
+
 		void add_contact(int contact_id)
 		{
 			int j = 0;
 
-			contacts[contact_id] = new Contact();
+			contacts[contact_id] = Contact();
 			while(j < 5)
 			{
-				std::cout << questions[j] << std::endl;
-				std::cin >> contacts[contact_id]->str[j];
-				// if (!getline(cin, contacts[contact_id]->str[j])) //doesnt get first name
-					// std::cout << "ERROR" << std::endl;
+				cout << questions[j] << std::endl;
+				string input;
+				std::cin >> input;
+				cout << "INPUT: " << input << std::endl;
+				contacts[contact_id].set_string(input, j);
 				j++;
 			}
 		}
@@ -62,74 +115,48 @@ class	PhoneBook
 			return (0);
 		}
 
+		// 	searches for a match in all fields and returns index 0 - 3 if found
 		int	search(string word) 
 		{
-			int i = 0;
+			int contact = 0;
 			int j = 0;
-
-			std::cout << "IN SEARCH" << std::endl;
-			while (contacts[i])
+			cout << "IN SEARCH" << std::endl;
+			while (contact < contact_count) //HERE
 			{
-				while(&contacts[i]->str[j])
+				while(j < 4)
 				{
-					if (compare(contacts[i]->str[j], word) == 0)
+					cout << contacts[contact].get_string(j).c_str() << std::endl;	
+					if (compare(contacts[contact].get_string(j), word) == 0)
 					{
 						j = 0;
-						while (j < 5)
+						while (j < 4)
 						{
 							if (j < 4)
-							std::cout << contacts[i]->str[j] << " |" << std::endl;
+							cout << contacts[contact].get_string(j) << " |" << std::endl;
 							else if (j < 3)
-								std::cout << contacts[i]->str[j] << std::endl;
+								cout << contacts[contact].get_string(j) << std::endl;
 							j++;
 						}
 						return (1);
 					}
 					j++;
 				}
-				i++;
+				contact++;
 			}
 			return (0);
 		}
-
-		
 };
 
-//first free and the automatic destroyedfds
+std::ostream & operator<<(std::ostream & o, PhoneBook const & i);
+
 int main(int argc, char **argv)
 {
 	if (argc == 1 && argv[0])
 	{
 		PhoneBook book = PhoneBook();
-		std::string input;
-
-		int add = 0;
-		while (1)				
-			{
-				std::cout << "Enter a command: ADD, SEARCH, EXIT" << std::endl;
-				std::cin >> input;
-				if(!(book.compare(input, "ADD")))
-				{
-					book.add_contact(add);
-					add++; //delete here
-				}
-				else if(!(book.compare(input, "SEARCH")))
-				{
-					string word;
-
-					std::cout << "Enter a search term: " << std::endl;
-					std::cin >> word; //if not getline both
-					if (!book.search(word))
-						std::cout << "FOUND NOTHING" << std::endl;
-				}
-				else if(!(book.compare(input, "EXIT")))
-				{
-					std::cout << "EXITING" << std::endl;
-					return (0);
-				}
-				else
-					std::cout << "INVALID COMMAND" << std::endl;
-			}
+		book.start();
+		string input;
 	}
+
 	return (0);
 };

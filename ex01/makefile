@@ -4,7 +4,7 @@ NAME = phonebook
 MAKE = make
 CC = g++
 RM = rm -rf
-CFLAG = -Wall -Werror -Wextra
+CFLAG = -Wall -Werror -Wextra -g3
 
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/

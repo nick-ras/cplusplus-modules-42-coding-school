@@ -1,0 +1,52 @@
+Enter a command: ADD, SEARCH, EXIT
+Enter a first name: 
+INPUT: a
+Enter a last name: 
+INPUT: b
+Enter a nickname: 
+INPUT: c
+Enter a phone number: 
+INPUT: d
+Enter a darkest: 
+INPUT: x
+Enter a command: ADD, SEARCH, EXIT
+Enter a first name: 
+INPUT: q
+Enter a last name: 
+INPUT: q
+Enter a nickname: 
+INPUT: q
+Enter a phone number: 
+INPUT: q
+Enter a darkest: 
+INPUT: x
+Enter a command: ADD, SEARCH, EXIT
+Enter a search term: 
+WORD: q
+IN SEARCH
+a
+b
+c
+d
+FOUND NOTHING
+Enter a command: ADD, SEARCH, EXIT
+Enter a search term: 
+WORD: b
+IN SEARCH
+a
+b
+a |
+b |
+c |
+d |
+Enter a command: ADD, SEARCH, EXIT
+Enter a search term: 
+WORD: x
+IN SEARCH
+a
+b
+c
+d
+FOUND NOTHING
+Enter a command: ADD, SEARCH, EXIT
+DESTRUCTOR
