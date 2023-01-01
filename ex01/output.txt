@@ -28,7 +28,11 @@ a
 b
 c
 d
-FOUND NOTHING
+q
+q |
+q |
+q |
+q |
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
 WORD: b
@@ -47,6 +51,10 @@ a
 b
 c
 d
+q
+q
+q
+q
 FOUND NOTHING
 Enter a command: ADD, SEARCH, EXIT
 DESTRUCTOR

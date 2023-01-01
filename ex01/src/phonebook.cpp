@@ -123,6 +123,7 @@ class	PhoneBook
 			cout << "IN SEARCH" << std::endl;
 			while (contact < contact_count) //HERE
 			{
+				j = 0;
 				while(j < 4)
 				{
 					cout << contacts[contact].get_string(j).c_str() << std::endl;	
