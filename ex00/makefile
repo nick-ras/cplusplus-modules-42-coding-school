@@ -1,15 +1,14 @@
 
-NAME = ex00
+NAME = Megaphone
 
 MAKE = make
 CC = g++
-RM = rm -rf
-CFLAG = -Wall -Werror -Wextra
+RM = rm -Rf
+CFLAG = -Wall -Werror -Wextra -I. # current directory searched first
 
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/
-
-SRC_FILES = megaphone.cpp
+SRC_FILES = Megaphone.cpp
 
 OBJ_FILES = ${SRC_FILES:.cpp=.o}
 SRC			= $(addprefix $(SRC_DIR),$(SRC_FILES))
@@ -31,9 +30,9 @@ fclean: clean
 
 re: fclean all
 
-tests:			$(NAME)
-				./$(NAME) "shhhhh... I think the students are asleep..."
-				./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
-				./$(NAME)
+tests:	re $(NAME)
+			./$(NAME) "shhhhh... I think the students are asleep..."
+			./$(NAME) Damnit " ! " "Sorry students, I thought this thing was off."
+			./$(NAME)
 
 .PHONY: all clean fclean re tests

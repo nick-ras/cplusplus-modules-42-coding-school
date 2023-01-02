@@ -3,7 +3,7 @@
 
 using namespace std;
 
-void	BaseClass(char **argv)
+void	Megaphone(char **argv)
 {
 	int i = 0;
 	int j = 1;
@@ -26,7 +26,7 @@ void	BaseClass(char **argv)
 	cout << endl;
 }
 
-void	BaseClass(void)
+void	Megaphone(void)
 {
 	std::string empty = "* LOUD AND UNBEARABLE FEEDBACK NOISE *";
 	std::cout << empty;
@@ -35,8 +35,8 @@ void	BaseClass(void)
 int main(int argc, char **argv)
 {
 	if (argc == 1)
-		BaseClass();
+		Megaphone();
 	if (argc < __INT_MAX__)
-		BaseClass (argv);
+		Megaphone (argv);
 	return (0);
 }
