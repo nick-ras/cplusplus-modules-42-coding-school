@@ -1,39 +1,33 @@
 Enter a command: ADD, SEARCH, EXIT
 Enter a first name: 
-INPUT: a
+INPUT: Hans
 Enter a last name: 
-INPUT: b
+INPUT: Christiansen
 Enter a nickname: 
-INPUT: c
+INPUT: Hansi
 Enter a phone number: 
-INPUT: d
+INPUT: +451234567890
 Enter a darkest: 
 INPUT: x
 Enter a command: ADD, SEARCH, EXIT
 Enter a first name: 
-INPUT: q
+INPUT: Sebastianiqqq
 Enter a last name: 
-INPUT: q
+INPUT: Ramussenfffffff
 Enter a nickname: 
-INPUT: q
+INPUT: Seb
 Enter a phone number: 
-INPUT: q
+INPUT: +11234444
 Enter a darkest: 
 INPUT: x
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
-WORD: q
-q |
-q |
-q |
-q |
+WORD: Christiansen
+      Hans |  Christian |      Hansi |  +45123456
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
-WORD: b
-a |
-b |
-c |
-d |
+WORD: Seb
+ Sebastian |  Ramussenf |        Seb |  +11234444
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
 WORD: x

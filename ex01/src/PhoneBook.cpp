@@ -1,45 +1,16 @@
-# include <iostream>
-# include <string>
+#include "PhoneBook.hpp"
 
 using namespace std;
 using string = std::string;
 
-class	Contact
-{
-	private:
-		string str_[5] = {"", "", "", "", ""};
-		//do [5][50]?
-		//first_name; last_name;nickname;phone_number; darkest_secret;
-	public:
-		string	get_string(int i)
-		{
-			if (i > 3 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
-				return ("");
-			else
-				return (str_[i]);
-		}
-		
-		void	set_string(string input, int i)
-		{
-			if (i > 4)
-				return ;
-			str_[i] = input;
-		}
-};
+
 
 class	PhoneBook
 {
 	private:
 		Contact contacts[8];
-		int contact_count = 0;
-		// Contact *contacts = new Contact[8];
 	public:
-		// PhoneBook(void);
-		PhoneBook & operator=(PhoneBook const & 	copy); //assignment operator
-		// PhoneBook(const PhoneBook &copy); //copy constructor
-		string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
-
-		~PhoneBook()
+		int contact_count = 0;
 		{			
 			// int i = 0;
 
@@ -52,47 +23,17 @@ class	PhoneBook
 			// }
 		}
 
-		int start()
+		void add_contact()
 		{
-			string input;
-
-			while (1)				
+			contacts[contact_count] = Contact();
+			contacts[contact_count].create_contact();
+			if (contact_count > 6)
 			{
-				cout << "Enter a command: ADD, SEARCH, EXIT" << std::endl;
-				std::cin >> input;
-				if(!compare(input, "A"))
-					add_contact(contact_count++);
-				else if(!(compare(input, "S")))
-				{
-					string word;
-
-					cout << "Enter a search term: " << std::endl;
-					std::cin >> word; //luckely it doesnt accept just 'enter' but
-					cout << "WORD: " << word << std::endl;
-					if (!search(word))
-						cout << "FOUND NOTHING" << std::endl;
-				}
-				else if(!(compare(input, "EXIT")))
-					return (0);
-				else
-					cout << "INVALID COMMAND" << std::endl;
+				cout << "CONTACTS FULL, FILLING UP FROM INDEX 0" << std::endl;
+				contact_count = 0;
 			}
-		}
-
-		void add_contact(int contact_id)
-		{
-			int j = 0;
-
-			contacts[contact_id] = Contact();
-			while(j < 5)
-			{
-				cout << questions[j] << std::endl;
-				string input;
-				std::cin >> input;
-				cout << "INPUT: " << input << std::endl;
-				contacts[contact_id].set_string(input, j);
-				j++;
-			}
+			else
+				contact_count++;
 		}
 
 		int compare(string s1, string s2) 
@@ -114,12 +55,31 @@ class	PhoneBook
 			return (0);
 		}
 
+		void print_contact(int contact)
+		{
+			int j = 0;
+			while (j < 4)
+			{
+				if (j > 0 && j < 4)
+				{
+					std::cout <<  " | " << std::setw(10);
+					cout << contacts[contact].get_string(j).substr(0, 9);
+				}
+				else if (j < 3)
+				{
+					std::cout << std::setw(10);
+					cout << contacts[contact].get_string(j).substr(0, 9);
+				}
+				j++;
+			}
+			cout << std::endl;
+		}
+
 		// 	searches for a match in all fields and returns index 0 - 3 if found
 		int	search(string word) 
 		{
 			int contact = 0;
 			int j = 0;
-			//cout << "IN SEARCH" << std::endl;
 			while (contact < contact_count) //HERE
 			{
 				j = 0;
@@ -128,15 +88,7 @@ class	PhoneBook
 					//cout << contacts[contact].get_string(j).c_str() << std::endl;	
 					if (compare(contacts[contact].get_string(j), word) == 0)
 					{
-						j = 0;
-						while (j < 4)
-						{
-							if (j < 4)
-							cout << contacts[contact].get_string(j) << " |" << std::endl;
-							else if (j < 3)
-								cout << contacts[contact].get_string(j) << std::endl;
-							j++;
-						}
+						print_contact(contact);
 						return (1);
 					}
 					j++;
@@ -151,12 +103,32 @@ std::ostream & operator<<(std::ostream & o, PhoneBook const & i); //WHAT WAS THA
 
 int main(int argc, char **argv)
 {
+	PhoneBook book = PhoneBook();
 	if (argc == 1 && argv[0])
 	{
-		PhoneBook book = PhoneBook();
-		book.start();
 		string input;
-	}
 
+			while (1)				
+			{
+				cout << "Enter a command: ADD, SEARCH, EXIT" << std::endl;
+				std::cin >> input;
+				if(!book.compare(input, "A"))
+					book.add_contact();
+				else if(!(book.compare(input, "S")))
+				{
+					string word;
+
+					cout << "Enter a search term: " << std::endl;
+					std::cin >> word; //luckely it doesnt accept just 'enter' but
+					cout << "WORD: " << word << std::endl;
+					if (!book.search(word))
+						cout << "FOUND NOTHING" << std::endl;
+				}
+				else if(!(book.compare(input, "EXIT")))
+					return (0);
+				else
+					cout << "INVALID COMMAND" << std::endl;
+			}
+	}
 	return (0);
 };
