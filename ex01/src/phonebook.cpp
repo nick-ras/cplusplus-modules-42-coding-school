@@ -35,9 +35,10 @@ class	PhoneBook
 		int contact_count = 0;
 		// Contact *contacts = new Contact[8];
 	public:
-			// PhoneBook(const PhoneBook &copy); //copy constructor
-			// PhoneBook(); //default constructor
-			// PhoneBook & operator=(PhoneBook const & 	copy); //assignment operator
+		PhoneBook(void);
+		PhoneBook & operator=(PhoneBook const & 	copy); //assignment operator
+		PhoneBook(const PhoneBook &copy); //copy constructor
+		PhoneBook(); //default constructor
 		string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
 
 		~PhoneBook()
@@ -148,7 +149,7 @@ class	PhoneBook
 		}
 };
 
-std::ostream & operator<<(std::ostream & o, PhoneBook const & i);
+std::ostream & operator<<(std::ostream & o, PhoneBook const & i); //WHAT WAS THAT FOR?	a = obj b + obj c?
 
 int main(int argc, char **argv)
 {
