@@ -1,6 +1,5 @@
 # include <iostream>
 # include <string>
-# include <string.h>
 
 using namespace std;
 using string = std::string;
@@ -35,10 +34,9 @@ class	PhoneBook
 		int contact_count = 0;
 		// Contact *contacts = new Contact[8];
 	public:
-		PhoneBook(void);
+		// PhoneBook(void);
 		PhoneBook & operator=(PhoneBook const & 	copy); //assignment operator
-		PhoneBook(const PhoneBook &copy); //copy constructor
-		PhoneBook(); //default constructor
+		// PhoneBook(const PhoneBook &copy); //copy constructor
 		string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
 
 		~PhoneBook()
@@ -121,13 +119,13 @@ class	PhoneBook
 		{
 			int contact = 0;
 			int j = 0;
-			cout << "IN SEARCH" << std::endl;
+			//cout << "IN SEARCH" << std::endl;
 			while (contact < contact_count) //HERE
 			{
 				j = 0;
 				while(j < 4)
 				{
-					cout << contacts[contact].get_string(j).c_str() << std::endl;	
+					//cout << contacts[contact].get_string(j).c_str() << std::endl;	
 					if (compare(contacts[contact].get_string(j), word) == 0)
 					{
 						j = 0;

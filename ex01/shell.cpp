@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <iostream>
 
-int main() 
+using namespace std;
+int main(void) 
 {
-	system("clear && make re && ./phonebook  < \"input.txt\" > \"output.txt\"");
-	std::cout << "hello" << std::endl;
+	system("clear && make re && ./PhoneBook  < \"input.txt\" > \"output.txt\"");
 	return 0;
 }

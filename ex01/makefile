@@ -1,7 +1,6 @@
 
-NAME = phonebook
+NAME = PhoneBook
 
-MAKE = make
 CC = g++
 RM = rm -rf
 CFLAG = -Wall -Werror -Wextra -g3
@@ -9,7 +8,7 @@ CFLAG = -Wall -Werror -Wextra -g3
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/
 
-SRC_FILES = phonebook.cpp
+SRC_FILES = PhoneBook.cpp
 
 OBJ_FILES = ${SRC_FILES:.cpp=.o}
 SRC			= $(addprefix $(SRC_DIR),$(SRC_FILES))

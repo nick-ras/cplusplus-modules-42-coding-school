@@ -23,12 +23,6 @@ INPUT: x
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
 WORD: q
-IN SEARCH
-a
-b
-c
-d
-q
 q |
 q |
 q |
@@ -36,9 +30,6 @@ q |
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
 WORD: b
-IN SEARCH
-a
-b
 a |
 b |
 c |
@@ -46,15 +37,6 @@ d |
 Enter a command: ADD, SEARCH, EXIT
 Enter a search term: 
 WORD: x
-IN SEARCH
-a
-b
-c
-d
-q
-q
-q
-q
 FOUND NOTHING
 Enter a command: ADD, SEARCH, EXIT
 DESTRUCTOR
