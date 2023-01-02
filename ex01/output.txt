@@ -1,3 +1,4 @@
+2023-1-2
 Enter a command: ADD, SEARCH, EXIT
 
 INPUT: Hans

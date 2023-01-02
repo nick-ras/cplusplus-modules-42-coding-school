@@ -1,39 +1,69 @@
+# include "Account.hpp"
 # include <iostream>
 # include <string>
-# include <string.h>
 
 using namespace std;
 using string = std::string;
 
-class	Contact
+int	Account::_nbAccounts = 0;
+int	Account::_totalAmount = 0;
+int	Account::_totalNbDeposits = 0;
+int	Account::_totalNbWithdrawals = 0;
+
+Account::Account(int initial_deposit)
 {
-	private:
+}
 
-	public:
-		
-};
-
-class	Account
+int Account::getNbAccounts(void)
 {
-	public:
-		Account(void);
-		Account(const Account &copy); //copy constructor
-		~Account(void);
-		Account & operator=(Account const & 	copy); //assignment operator
-		
-		string questions[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
+	return (Account::_nbAccounts);
+}
 
-
-};
-
-std::ostream & operator<<(std::ostream & o, Account const & i);
-
-int main(int argc, char **argv)
+int Account::getTotalAmount(void)
 {
-	if (argc == 1 && argv[0])
-	{
-		Account book = Account();
-	}
+	return (Account::_totalAmount);
+}
 
-	return (0);
-};
+int Account::getNbDeposits(void)
+{
+	return (Account::_totalNbDeposits);
+}
+
+int Account::getNbWithdrawals(void)
+{
+	return (Account::_totalNbWithdrawals);
+}
+
+void	Account::displayAccountsInfos( void )
+{
+	Account::_displayTimestamp();
+	cout << "accounts:" << Account::getNbAccounts() << ";total:" << Account::getTotalAmount() << ";deposits:" << Account::getNbDeposits() << ";withdrawals:" << Account::getNbWithdrawals() << endl;
+}
+
+void	Account::makeDeposit( int deposit )
+{
+	_totalAmount += deposit;
+}
+
+bool	Account::makeWithdrawal( int withdrawal )
+{
+	if (withdrawal > _totalAmount)
+		return (false);
+	_totalAmount -= withdrawal;
+}
+
+int		checkAmount( void )
+{
+	// if (Account::_totalAmount);
+}
+
+void	Account::displayStatus( void ) const
+{
+	Account::_displayTimestamp();
+	cout << "index:" << _accountIndex << ";amount:" << _amount << ";deposits:" << _nbDeposits << ";withdrawals:" << _nbWithdrawals << endl;
+}
+
+void	Account::_displayTimestamp( void )
+{
+	cout << time(0);
+}
