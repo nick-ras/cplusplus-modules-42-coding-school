@@ -8,7 +8,9 @@ CFLAG = -Wall -Werror -Wextra -g3
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/
 
-SRC_FILES = PhoneBook.cpp
+SRC_FILES = PhoneBook.cpp \
+			Contact.cpp \
+			main.cpp
 
 OBJ_FILES = ${SRC_FILES:.cpp=.o}
 SRC			= $(addprefix $(SRC_DIR),$(SRC_FILES))

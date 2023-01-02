@@ -3,7 +3,7 @@ NAME = Megaphone
 
 MAKE = make
 CC = g++
-RM = rm -Rf
+RM = rm -rf
 CFLAG = -Wall -Werror -Wextra -I. # current directory searched first
 
 SRC_DIR = 	./src/
