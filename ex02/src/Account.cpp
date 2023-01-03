@@ -10,6 +10,7 @@
 # include <iostream>
 # include <string>
 # include <chrono>
+# include <iomanip>
 
 using namespace std;
 using string = std::string;
@@ -115,8 +116,13 @@ void	Account::displayStatus( void ) const
 
 void	Account::_displayTimestamp( void )
 {
+	//i could do if len < 2 then add 0, for the different parts of the time
 	std::time_t time_now = chrono::system_clock::to_time_t(chrono::system_clock::now());
 	tm local_t = *localtime(&time_now);
-	cout << "[" << local_t.tm_year << local_t.tm_mon << local_t.tm_mday << "_" \
-		<< local_t.tm_hour << local_t.tm_min << local_t.tm_sec << "] ";
+	cout << "[" << local_t.tm_year + 1900 <<  \
+	setw(2) << local_t.tm_mon <<      \
+	setw(2) << local_t.tm_mday << "_" << \
+	setw(2) << local_t.tm_hour <<        \
+	setw(2) << local_t.tm_min <<       \
+	setw(2) << local_t.tm_sec << "] ";
 }
