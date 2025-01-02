@@ -14,12 +14,11 @@ int main(int argc, char **argv)
 			{
 				cout << "Enter a command: ADD, SEARCH, EXIT" << std::endl;
 				std::cin >> input;
-				if(!book.compare(input, "A"))
+				if(!book.compare(input, "ADD"))
 					book.add_contact();
-				else if(!(book.compare(input, "S")))
+				else if(!(book.compare(input, "SEARCH")))
 				{
 					string word;
-
 					cout << "Enter a search term: " << std::endl;
 					std::cin >> word; //luckely it doesnt accept just 'enter' but
 					cout << "WORD: " << word << std::endl;

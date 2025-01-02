@@ -2,7 +2,7 @@
 NAME = Megaphone
 
 MAKE = make
-CC = g++
+CC = g++ -std=c++11
 RM = rm -rf
 CFLAG = -Wall -Werror -Wextra -I. # current directory searched first
 

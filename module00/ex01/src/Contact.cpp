@@ -15,7 +15,7 @@ Contact::~Contact()
 
 string Contact::get_string(int i)
 {
-	if (i > 3 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
+	if (i > 4 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
 				return ("");
 			else
 				return (str_[i]);

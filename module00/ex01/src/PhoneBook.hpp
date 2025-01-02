@@ -24,7 +24,8 @@ class	Contact
 class PhoneBook
 {
 private:
-	Contact contacts[8];
+    static const int MAX_CONTACTS = 8;
+	Contact contacts[MAX_CONTACTS];
 public:
 	PhoneBook();
 	virtual ~PhoneBook();
@@ -33,8 +34,8 @@ public:
 	int contact_count;
 	void add_contact();
 	int compare(string s1, string s2);
-	void print_contact(int contact);
-	int	search(string word);
+	void print_contact_information_for_one(int contact);
+	int	print_contact_information_for_all(string word);
 	int main(int argc, char **argv);
 };
 std::ostream & operator<<(std::ostream & o, PhoneBook const & i); //a = obj b + obj c?
