@@ -18,18 +18,24 @@ int main(int argc, char **argv)
 					book.add_contact();
 				else if(!(book.compare(input, "SEARCH")))
 				{
-					string word;
-					cout << "Enter a search term: " << std::endl;
-					std::cin >> word; //luckely it doesnt accept just 'enter' but
-					cout << "WORD: " << word << std::endl;
-					if (!book.search(word))
-						cout << "FOUND NOTHING" << std::endl;
+					book.print_phonebook();
+					int nb;
+					cout << "TELL ME WHICH INDEX YOU WANT MEE TO SHOW: " << std::endl;
+					std::cin >> nb; //luckely it doesnt accept just 'enter' but
+					if (nb > book.contact_count - 1|| nb < 0 || std::cin.fail())
+					{
+						cout << "out of range or not a numbers" << std::endl;
+						std::cin.clear();
+						std::cin.ignore();
+					}
+					else
+						book.print_contact(nb);
 				}
 				else if(!(book.compare(input, "EXIT")))
-					return (0);
+					return (0); //EXITS
 				else
-					cout << "INVALID COMMAND" << std::endl;
-			}
+					cout << "TRY AGAIN" << std::endl;
+				}
 	}
 	return (0);
 };

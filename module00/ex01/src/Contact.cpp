@@ -13,69 +13,62 @@ Contact::~Contact()
 {
 }
 
-string Contact::get_string(int i)
+int Contact::is_empty()
 {
-	if (i > 4 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
-				return ("");
-			else
-				return (str_[i]);
+	if (str_[0].empty())
+        return 1;
+	else
+	    return 0;
 }
 
-void Contact::set_string(string input, int i)
+void Contact::print_contact_info_using_pipe()
+{   int j = 0;
+
+    while (j < 4)
+    {
+        if (str_[j].length() > 10)
+        {
+            std::cout << std::setw(10) << str_[j].substr(0, 9) << '.';
+        }
+        else
+        {
+            std::cout << std::setw(10) << str_[j];
+        }
+        if (j < 3) // not last line
+        {
+            std::cout << " | ";
+        }
+        j++;
+    }
+    std::cout << std::endl;
+}
+
+void Contact::print_contact_info_using_newline()
 {
-	if (i > 4)
-		return ;
-	str_[i] = input;
+int j = 0;
+	while(j < 4)
+	{
+		cout << str_[j] << std::endl;	
+		j++;
+	}
 }
 
 void	Contact::create_contact()
 {
 	int j = 0;
+	string input;
 
-	while(j < 5)
+	while (j < 5)
 	{
-		cout << questions_[j] << std::endl;
-		string input; //try getline again?
+		std::cout << questions_[j] << std::endl;
 		std::cin >> input;
-		cout << "INPUT: " << input << std::endl;
-		set_string(input, j);
+		if (input == "")
+		{
+			std::cout << "NO INPUTS. PROGRAM WILL EXIT" << std::endl;
+			exit(0);
+		}
+		std::cout << "INPUT: " << input << std::endl;
+	    str_[j] = input;
 		j++;
 	}
 }
-
-// class	Contact
-// {
-// 	private:
-// 		string str_[5] = {"", "", "", "", ""};
-// 		string questions_[5] = {"Enter a first name: ", "Enter a last name: ", "Enter a nickname: " , "Enter a phone number: ", "Enter a darkest: "};
-// 	public:
-// 		string	get_string(int i)
-// 		{
-// 			if (i > 3 || str_[i].empty()) //if empty OR so it doesnt get darkest secret
-// 				return ("");
-// 			else
-// 				return (str_[i]);
-// 		}
-		
-// 		void	set_string(string input, int i)
-// 		{
-// 			if (i > 4)
-// 				return ;
-// 			str_[i] = input;
-// 		}
-
-// 		void	create_contact()
-// 		{
-// 			int j = 0;
-
-// 			while(j < 5)
-// 			{
-// 				cout << questions_[j] << std::endl;
-// 				string input; //try getline again?
-// 				std::cin >> input;
-// 				cout << "INPUT: " << input << std::endl;
-// 				set_string(input, j);
-// 				j++;
-// 			}
-// 		}
-// };
