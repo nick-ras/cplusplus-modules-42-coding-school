@@ -1,16 +1,17 @@
 
-#ifndef _Zombie_H__
+#ifndef __Zombie_H__
 # define __Zombie_H__
 
-class Zombie {
+#include <string> /
 
-private:
-	Zombie( void )[[string]];
+class Zombie {
 
 public:
 	 void announce( void );
 	~Zombie( void );
 
+private:
+	Zombie( void )[[string]];
 
 };
 #endif

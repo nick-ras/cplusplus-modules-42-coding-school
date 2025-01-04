@@ -1,11 +1,3 @@
-
-// for	makeDeposit( *(it.second) );
-// displayAccountsInfos();
-// for_each( displayStatus ) )
-// for makeWithdrawal
-// displayAccountsInfos();
-// for_each( displayStatus
-
 # include "Account.hpp"
 # include <iostream>
 # include <string>
@@ -22,15 +14,12 @@ int	Account::_totalNbWithdrawals = 0;
 
 Account::Account()
 {
-	//HEREHEREHERHERE matbe use vector?
-
-	// this->_accountIndex = this->_nbAccounts++;
+	_accountIndex = _nbAccounts++;
 	cout << "Account created" << endl;
 }
 
 Account::Account(int initial_deposit)
 {
-	_accountIndex = _nbAccounts++;
 	_totalAmount += initial_deposit;
 	_amount = initial_deposit;
 

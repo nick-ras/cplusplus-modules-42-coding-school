@@ -6,5 +6,5 @@ using namespace std;
 int		main( void ) 
 {
 
-	cout << ( sizeof(amounts) / sizeof(int) ) << endl;
+	cout << ( sizeof(_amounts) / sizeof(int) ) << endl;
 }
