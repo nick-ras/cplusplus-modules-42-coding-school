@@ -1,5 +1,5 @@
 
-NAME = account
+NAME = zombie
 
 MAKE = make
 CC = g++
@@ -8,8 +8,7 @@ CFLAG = -Wall -Werror -Wextra -g3
 
 SRC_DIR = 	./src/
 OBJ_DIR =   ./obj/
-
-SRC_FILES = Account.cpp tests.cpp
+SRC_FILES = Zombie.cpp main.cpp newZombie.cpp randomChump.cpp 
 
 OBJ_FILES = ${SRC_FILES:.cpp=.o}
 SRC			= $(addprefix $(SRC_DIR),$(SRC_FILES))

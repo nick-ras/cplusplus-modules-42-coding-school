@@ -23,7 +23,7 @@ $(OBJ_DIR)%.o: $(SRC_DIR)%.cpp
 			${CC} ${CFLAG} -o $@ -c $^
 
 clean:
-			$(RM) ${OBJ_DIR} ${OBJ_DIR} 
+			$(RM) ${OBJ_DIR}
 
 fclean: clean
 			$(RM) ${NAME}

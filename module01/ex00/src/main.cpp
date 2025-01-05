@@ -1,6 +1,11 @@
 #include "Zombie.hpp"
 
 
-Zombie::announce( void )[std::string name = "hi"] {
-	std::cout << Zombie::name << "	": Braiiiiiiinnnssss..." << std::endl;
+int main()
+{
+	Zombie *Karl = newZombie("KARL");
+	Karl->announce();
+
+	delete Karl;
+	return (0);
 }

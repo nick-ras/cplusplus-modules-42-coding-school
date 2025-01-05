@@ -2,15 +2,21 @@
 #ifndef _Zombie_H__
 # define __Zombie_H__
 
+#include <string>
+
 class Zombie {
 
 private:
-	Zombie( void )[[string]];
+	std::string name;
 
 public:
-	 void announce( void );
+    Zombie(std::string const &name);
+	void announce( void );
+	std::string getName() const;
 	~Zombie( void );
 
-
 };
+Zombie *newZombie(std::string name);
+void randomChump(const std::string &name);
+
 #endif
