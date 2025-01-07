@@ -15,21 +15,14 @@ private:
 public:
 
     Fixed();
+
+	~Fixed( void );
 	
 	Fixed(const int n);
 	
 	Fixed(const float float_nb);
 
-
 	Fixed(const Fixed &other); //copy constructor
-
-	Fixed& operator=(const Fixed &other); //operator
-
-	bool operator<(Fixed const &other) const;
-
-	Fixed& Fixed::operator+(Fixed& obj);
-
-	~Fixed( void );
 
 	float toFloat( void ) const;
 
@@ -38,7 +31,13 @@ public:
 	int getRawBits( void ) const;
 
 	void setRawBits( int const raw );
+
+	 //operators---------------------
+	Fixed& operator=(const Fixed &other); //assignment operator
+
+	Fixed& operator++();
+
+	Fixed operator++(int);
 };
 std::ostream& operator<<(std::ostream& os, Fixed const &other); // HUSK det bruges ved a << b
 #endif
-

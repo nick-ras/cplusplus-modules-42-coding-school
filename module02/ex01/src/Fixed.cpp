@@ -63,3 +63,15 @@
         os << other.toFloat();
         return os;
     }
+    
+    bool Fixed::operator<(Fixed const &other) const{
+        if (this->getRawBits() < other.getRawBits())
+            return true;
+        else
+            return false;
+    } // guess it must be biggest that gets returnes
+
+        Fixed &Fixed::operator+(Fixed& obj) {
+            *this = obj.fixed_nb++;
+        }
+
