@@ -13,7 +13,7 @@ Zombie::~Zombie() {
 
 void Zombie::announce( void ) {
 	std::cout << Zombie::name << ": Braiiiiiiinnnssss..." << std::endl;
-}
+} #announce function
 
 std::string Zombie::getName() const {
     return name;
